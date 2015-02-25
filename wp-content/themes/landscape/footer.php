@@ -15,7 +15,7 @@
 			<?php do_action( 'landscape_credits' ); ?>
 			Written with love
 			<span class="sep"> | </span>
-			<span class="fuck-coding">Because fuck coding</span>
+			<span class="fuck-coding">Because fuck code</span>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon .site-footer -->
 
