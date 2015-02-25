@@ -28,7 +28,7 @@
 		</div><!-- .single-thumbnail -->
 		<?php } ?>
 	<div class="entry-content">
-		<?php the_excerpt(); ?>
+		<a href="<?php the_permalink(); ?>"><?php the_excerpt(); ?></a>
 		<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'landscape' ), 'after' => '</div>' ) ); ?>
 	</div><!-- .entry-content -->
 	<?php endif; ?>

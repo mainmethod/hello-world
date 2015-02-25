@@ -13,9 +13,9 @@
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info">
 			<?php do_action( 'landscape_credits' ); ?>
-			<a href="http://wordpress.org/" title="<?php esc_attr_e( 'A Semantic Personal Publishing Platform', 'landscape' ); ?>" rel="generator"><?php printf( __( 'Proudly powered by %s', 'landscape' ), 'WordPress' ); ?></a>
+			Written with love
 			<span class="sep"> | </span>
-			<?php printf( __( '%1$s Theme by %2$s', 'landscape' ), 'Landscape', '<a href="http://blankthemes.com/" rel="designer">Blank Themes</a>' ); ?>
+			<span class="fuck-coding">Because fuck coding</span>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon .site-footer -->
 
