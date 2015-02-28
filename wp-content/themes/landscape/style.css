@@ -631,6 +631,12 @@ h2.site-description {
 .entry-summary {
 	margin: 1.5em 0 0;
 }
+.entry-content a {
+	color: #999;
+}
+.entry-content a:hover{
+	color:#000;
+}
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
