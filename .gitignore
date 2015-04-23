@@ -2,3 +2,6 @@
 wp-config.php
 wp-content/uploads
 .project
+wp-content/wp-cache-config.php
+wp-content/cache/
+wp-content/advanced-cache.php
