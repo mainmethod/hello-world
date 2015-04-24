@@ -1,0 +1,8 @@
+<VirtualHost *:80>
+       ServerName <%= scope['apache2::sitename'] %>
+       DocumentRoot /var/www/<%= scope['apache2::sitename'] %>
+       <Directory /var/www/<%= scope['apache2::sitename'] %>>
+               AllowOverride All
+               Options -MultiViews
+       </Directory>
+</VirtualHost>
