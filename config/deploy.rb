@@ -15,7 +15,7 @@ set :deploy_to, "/var/www/#{fetch(:application)}"
 # set :pty, true
 
 # Default value for :linked_files is []
-set :linked_files, %w{wp-config.php wp-content/advanced-cache.php}
+set :linked_files, %w{wp-config.php}
 
 # Default value for linked_dirs is []
 set :linked_dirs, %w{wp-content/uploads}
