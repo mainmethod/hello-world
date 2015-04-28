@@ -17,6 +17,13 @@ class apache2::config {
     group => 'root',
     content => template('apache2/default.conf.erb')
   }->
+  file { "ports.conf":
+    path => "/etc/apache2/ports.conf",
+    ensure => file,
+    owner => 'root',
+    group => 'root',
+    content => template('apache2/ports.conf.erb')
+  }->
   exec { "disable-default": 
     command => "/usr/sbin/a2dissite 000-default",
   }->

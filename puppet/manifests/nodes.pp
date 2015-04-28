@@ -5,6 +5,7 @@ node default {
   include htop
   include memcached
   include imagemagick
+  include varnish
   class { 'apache2':
     sitename => 'hello-world.local'
   }
