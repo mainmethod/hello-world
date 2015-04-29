@@ -184,14 +184,28 @@ function add_google_analytics(){
 }
 add_action('wp_footer', 'add_google_analytics');
 
-//purge varnish cache after comment status is changed in admin
-function approve_comment_purge_varnish($new_status, $old_status, $comment) {
-    $url = get_permalink($comment->comment_post_ID);
-    $ch = curl_init($url);
+function purge_varnish($url){
+	$ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PURGE");
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	curl_exec($ch);
 	curl_close($ch);
+}
+
+function save_post_purge_varnish($post_id) {
+
+	// If this is just a revision, don't send the email.
+	if (wp_is_post_revision($post_id))
+		return;
+
+	purge_varnish(get_permalink($post_id));
+	
+}
+add_action( 'save_post', 'save_post_purge_varnish' );
+
+//purge varnish cache after comment status is changed in admin
+function approve_comment_purge_varnish($new_status, $old_status, $comment) {
+    purge_varnish(get_permalink($comment->comment_post_ID));
 }
 add_action('transition_comment_status', 'approve_comment_purge_varnish', 10, 3);
 
