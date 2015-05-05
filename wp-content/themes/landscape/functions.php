@@ -209,6 +209,33 @@ function approve_comment_purge_varnish($new_status, $old_status, $comment) {
 }
 add_action('transition_comment_status', 'approve_comment_purge_varnish', 10, 3);
 
+function pre_comment_set_ip()
+{
+
+    // Use IP set in the REMOTE_ADDR server variable by default
+    $CLIENT_IP = $_SERVER['REMOTE_ADDR'];
+    if (!empty($_SERVER['X_FORWARDED_FOR'])) {
+        $X_FORWARDED_FOR = explode(',', $_SERVER['X_FORWARDED_FOR']);
+    }
+
+    // Extra check taken from The WordPress Codex at:
+    // http://codex.wordpress.org/Plugin_API/Filter_Reference/pre_comment_user_ip
+    elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+        $X_FORWARDED_FOR = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
+    }
+
+    // If we got a
+    if (!empty($X_FORWARDED_FOR)) {
+        $CLIENT_IP = trim($X_FORWARDED_FOR[0]);
+        //$CLIENT_IP = preg_replace('/[^0-9a-f:\., ]/si', '', $CLIENT_IP);
+    }
+    echo $CLIENT_IP;exit;
+
+    return $CLIENT_IP;
+}
+
+add_filter ('pre_comment_user_ip', 'pre_comment_set_ip');
+
 /**
  * Adds custom background support
  */
