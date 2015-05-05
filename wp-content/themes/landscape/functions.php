@@ -229,7 +229,6 @@ function pre_comment_set_ip()
         $CLIENT_IP = trim($X_FORWARDED_FOR[0]);
         //$CLIENT_IP = preg_replace('/[^0-9a-f:\., ]/si', '', $CLIENT_IP);
     }
-    echo $CLIENT_IP;exit;
 
     return $CLIENT_IP;
 }
