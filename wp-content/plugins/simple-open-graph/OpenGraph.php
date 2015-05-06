@@ -78,7 +78,7 @@ function ogimage(){
 	$fallback = get_option('fbimage');
 	$fbimage = $fallback['fallbackimage'];
 	if (is_singular() && empty($image) && has_post_thumbnail($post->ID)){
-		$thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'thumbnail');
+		$thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large');
 		if ($thumbnail) {
 			$image = $thumbnail[0];
 		}
