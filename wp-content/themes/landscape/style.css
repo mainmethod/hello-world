@@ -1215,7 +1215,7 @@ a.comment-reply-link:hover {
 	#main {
 		max-width:1000px;
 		margin:0 auto;
-		padding: 4em 2em;
+		padding: 4em 0.25em;
 	}
 
 }
@@ -1243,7 +1243,7 @@ a.comment-reply-link:hover {
 	#main {
 		max-width:1000px;
 		margin:0 auto;
-		padding: 4em;
+		padding: 4em 0.25em;
 	}
 	#left-sidebar{
 		float:none;
